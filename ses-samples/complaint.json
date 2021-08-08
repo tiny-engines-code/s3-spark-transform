@@ -1,0 +1,96 @@
+{
+  "eventType": "Complaint",
+  "complaint": {
+    "feedbackId": "0100017755c1b297-f985d004-4cd9-4604-beef-0a12acef5fff-000000",
+    "complaintSubType": null,
+    "complainedRecipients": [
+      {
+        "emailAddress": "sierrini80@yahoo.com"
+      }
+    ],
+    "timestamp": "2021-01-31T00:04:53.749Z",
+    "userAgent": "Yahoo!-Mail-Feedback/2.0",
+    "complaintFeedbackType": "abuse",
+    "arrivalDate": "2021-01-29T17:47:54.000Z"
+  },
+  "mail": {
+    "timestamp": "2021-01-29T17:47:53.573Z",
+    "source": "Nike <nike@official.nike.com>",
+    "sourceArn": "arn:aws:ses:us-east-1:742617195046:identity/official.nike.com",
+    "sendingAccountId": "742617195046",
+    "messageId": "010001774f422f65-9d4e228e-586f-420f-81b7-989e1ec3e211-000000",
+    "destination": [
+      "sierrini80@yahoo.com"
+    ],
+    "headersTruncated": false,
+    "headers": [
+      {
+        "name": "From",
+        "value": "Nike <nike@official.nike.com>"
+      },
+      {
+        "name": "To",
+        "value": "sierrini80@yahoo.com"
+      },
+      {
+        "name": "Message-ID",
+        "value": "<1435274134.829464.1611942473287@ip-10-6-96-91.ec2.internal>"
+      },
+      {
+        "name": "Subject",
+        "value": "New spring essentials"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/mixed;  boundary=\"----=_Part_829460_1288140222.1611942473286\""
+      },
+      {
+        "name": "X-commId",
+        "value": "c27028"
+      },
+      {
+        "name": "X-cpCode",
+        "value": "nans_em_camp_nike_XCAT_20210125_c27028_01292021-na-xcat-gbllookbook1_NA-US-Email-FullFile-M_CNT~USA_en_M_NCP-9926fd3d-5f5d-4038-9747-1b37d0d49625_z"
+      },
+      {
+        "name": "X-campaignFileSrcDesc",
+        "value": "SES"
+      },
+      {
+        "name": "X-segId",
+        "value": ""
+      }
+    ],
+    "commonHeaders": {
+      "from": [
+        "Nike <nike@official.nike.com>"
+      ],
+      "to": [
+        "sierrini80@yahoo.com"
+      ],
+      "messageId": "010001774f422f65-9d4e228e-586f-420f-81b7-989e1ec3e211-000000",
+      "subject": "New spring essentials"
+    },
+    "tags": {
+      "ses:operation": [
+        "SendRawEmail"
+      ],
+      "ses:configuration-set": [
+        "cds-ses-ncp-dedicated-configset"
+      ],
+      "ses:source-ip": [
+        "54.197.201.37"
+      ],
+      "ses:from-domain": [
+        "official.nike.com"
+      ],
+      "ses:caller-identity": [
+        "cds_deliverses_prod_role"
+      ]
+    }
+  }
+}

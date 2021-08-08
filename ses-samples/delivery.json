@@ -1,0 +1,95 @@
+{
+  "eventType": "Delivery",
+  "mail": {
+    "timestamp": "2021-01-30T23:58:56.048Z",
+    "source": "Nike <nike@official.nike.com>",
+    "sourceArn": "arn:aws:ses:us-east-1:742617195046:identity/official.nike.com",
+    "sendingAccountId": "742617195046",
+    "messageId": "0100017755bc3e30-567d3b05-73cb-44b8-8b96-5bc45874dbad-000000",
+    "destination": [
+      "yesicacastillo0220@gmail.com"
+    ],
+    "headersTruncated": false,
+    "headers": [
+      {
+        "name": "From",
+        "value": "Nike <nike@official.nike.com>"
+      },
+      {
+        "name": "To",
+        "value": "yesicacastillo0220@gmail.com"
+      },
+      {
+        "name": "Message-ID",
+        "value": "<1157959314.547577.1612051136038@ip-10-6-117-165>"
+      },
+      {
+        "name": "Subject",
+        "value": "Your Nike Member profile password was updated"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/related;  boundary=\"----=_Part_547576_1400851622.1612051136038\""
+      },
+      {
+        "name": "X-commId",
+        "value": "c21482"
+      },
+      {
+        "name": "X-cpCode",
+        "value": "nans_em_autoT_nike_OTHER_20200717_c21482_Passwordresettransactionalna_Unknown_CNT~USA_en_U_NCP-d52d3ba1-01c7-4a57-9ccd-63aedd9b291e_z"
+      },
+      {
+        "name": "X-campaignFileSrcDesc",
+        "value": "SES"
+      },
+      {
+        "name": "X-segId",
+        "value": ""
+      }
+    ],
+    "commonHeaders": {
+      "from": [
+        "Nike <nike@official.nike.com>"
+      ],
+      "to": [
+        "yesicacastillo0220@gmail.com"
+      ],
+      "messageId": "0100017755bc3e30-567d3b05-73cb-44b8-8b96-5bc45874dbad-000000",
+      "subject": "Your Nike Member profile password was updated"
+    },
+    "tags": {
+      "ses:operation": [
+        "SendRawEmail"
+      ],
+      "ses:configuration-set": [
+        "cds-ses-ncp-dedicated-configset"
+      ],
+      "ses:source-ip": [
+        "18.205.159.161"
+      ],
+      "ses:from-domain": [
+        "official.nike.com"
+      ],
+      "ses:caller-identity": [
+        "cds-ses-test-iam-user"
+      ],
+      "ses:outgoing-ip": [
+        "23.251.230.52"
+      ]
+    }
+  },
+  "delivery": {
+    "timestamp": "2021-01-30T23:58:56.949Z",
+    "processingTimeMillis": 901,
+    "recipients": [
+      "yesicacastillo0220@gmail.com"
+    ],
+    "smtpResponse": "250 2.0.0 OK  1612051136 s36si3199809qtd.162 - gsmtp",
+    "reportingMTA": "e230-52.smtp-out.amazonses.com"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "eventType": "Bounce",
+  "bounce": {
+    "feedbackId": "0100017755bd1a4a-653e5aa7-6579-4300-b6db-20d34f971c80-000000",
+    "bounceType": "Transient",
+    "bounceSubType": "General",
+    "bouncedRecipients": [
+      {
+        "emailAddress": "eleanor.docter052@zowomail.com",
+        "action": "delayed",
+        "status": "4.0.0",
+        "diagnosticCode": "smtp; 452 4.2.2 Mailbox full"
+      }
+    ],
+    "timestamp": "2021-01-30T23:59:52.558Z",
+    "reportingMTA": "dns; s01.spamshield.eu"
+  },
+  "mail": {
+    "timestamp": "2021-01-29T18:17:55.358Z",
+    "source": "Nike <nike@official.nike.com>",
+    "sourceArn": "arn:aws:ses:us-east-1:742617195046:identity/official.nike.com",
+    "sendingAccountId": "742617195046",
+    "messageId": "010001774f5dad9e-b9e201bc-48fc-4738-af8d-5305776e0ba2-000000",
+    "destination": [
+      "eleanor.docter052@zowomail.com"
+    ],
+    "headersTruncated": false,
+    "headers": [
+      {
+        "name": "From",
+        "value": "Nike <nike@official.nike.com>"
+      },
+      {
+        "name": "To",
+        "value": "eleanor.docter052@zowomail.com"
+      },
+      {
+        "name": "Message-ID",
+        "value": "<448540882.1558581.1611944275174@ip-10-6-51-162.ec2.internal>"
+      },
+      {
+        "name": "Subject",
+        "value": "New spring essentials"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/mixed;  boundary=\"----=_Part_1558580_1186074303.1611944275173\""
+      },
+      {
+        "name": "X-commId",
+        "value": "c27028"
+      },
+      {
+        "name": "X-cpCode",
+        "value": "nans_em_camp_nike_XCAT_20210125_c27028_01292021-na-xcat-gbllookbook1_NA-US-Email-FullFile-M_CNT~USA_en_M_NCP-9926fd3d-5f5d-4038-9747-1b37d0d49625_z"
+      },
+      {
+        "name": "X-campaignFileSrcDesc",
+        "value": "SES"
+      },
+      {
+        "name": "X-segId",
+        "value": ""
+      }
+    ],
+    "commonHeaders": {
+      "from": [
+        "Nike <nike@official.nike.com>"
+      ],
+      "to": [
+        "eleanor.docter052@zowomail.com"
+      ],
+      "messageId": "010001774f5dad9e-b9e201bc-48fc-4738-af8d-5305776e0ba2-000000",
+      "subject": "New spring essentials"
+    },
+    "tags": {
+      "ses:operation": [
+        "SendRawEmail"
+      ],
+      "ses:configuration-set": [
+        "cds-ses-ncp-dedicated-configset"
+      ],
+      "ses:source-ip": [
+        "54.159.66.146"
+      ],
+      "ses:from-domain": [
+        "official.nike.com"
+      ],
+      "ses:caller-identity": [
+        "cds_deliverses_prod_role"
+      ]
+    }
+  }
+}
