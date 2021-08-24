@@ -30,7 +30,7 @@ file_schema = StructType([
 #  get_event_data
 #       - Parse the speocific event json for any event class (eg.g bounce, open...)
 #
-def get_event_data(event_class, event):
+def get_event_data(event_class: str, event: str) -> Row:
     elem = json.loads(event)
     end_type = ""
     subtype = ""
@@ -57,7 +57,7 @@ def get_event_data(event_class, event):
 #  get_file_info
 #       - Put the file info on the df for future validations
 #
-def get_file_info(filename):
+def get_file_info(filename: str):
     bucket_name = "not-supported"
     file_name = filename
     m = re.search(r"""^s3.\:\/\/([^\/]*)\/(.*)$""", filename)
@@ -71,7 +71,10 @@ def get_file_info(filename):
 #  conform_events
 #       - Merge open, bounce, send, rejects all into a single event schema
 #
-def conform_events(df, threshold=0):
+#  input: Individual elements for ["open", "delivery", "complaint", "send", "reject", "bounce", "click"]
+#  output: a single event element
+#
+def conform_events(df: DataFrame, threshold: int = 0) -> DataFrame:
 
     columns = ["open", "delivery", "complaint", "send", "reject", "bounce", "click"]
     null_counts = df.select([count(when(col(c).isNull(), c)).alias(c) for c in columns]).collect()[0].asDict()

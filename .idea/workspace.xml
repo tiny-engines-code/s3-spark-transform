@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="406dce6c-fbf9-4fa1-b299-4e4cd3d0bf0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/s3-spark-transform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/s3-spark-transform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configure_pyspark.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/configure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/readers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/writers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/writers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,7 @@
       <workItem from="1629744765936" duration="310000" />
       <workItem from="1629746004355" duration="1913000" />
       <workItem from="1629747952698" duration="3146000" />
-      <workItem from="1629834616456" duration="2834000" />
+      <workItem from="1629834616456" duration="3088000" />
     </task>
     <servers />
   </component>
