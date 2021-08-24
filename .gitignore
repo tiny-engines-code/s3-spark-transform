@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+output_local/
+output_streaming/
 __pycache__/
 *.py[cod]
 *$py.class

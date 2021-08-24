@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <content url="file:///usr/local/Cellar/apache-spark/3.1.2/libexec/python" />
+    <content url="jar:///usr/local/Cellar/apache-spark/3.1.2/libexec/jars/postgresql-42.2.23.jar!/" />
+    <content url="jar:///usr/local/Cellar/apache-spark/3.1.2/libexec/python/lib/py4j-0.10.9-src.zip!/" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (lazyprogrammer)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

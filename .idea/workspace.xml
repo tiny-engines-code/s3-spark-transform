@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="406dce6c-fbf9-4fa1-b299-4e4cd3d0bf0d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/s3-spark-transform.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/bounce/bounce.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/click/click.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/complaint/complaint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/delivery/delivery.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/open/open.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/reject/reject.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/send/send.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configure_pyspark.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ses-samples/bounce.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ses-samples/complaint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ses-samples/delivery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ses-samples/open.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ses-samples/send.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql/01-mock_request_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/dequeue_files.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/process_files.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambda_processor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql/02_pivot_base.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambda_processor/example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambda_processor/lambda_function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/s3_inventory/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql/03_ses_pivot.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/s3_inventory/s3_inventory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/s3_inventory/test_inventory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql/04_join_pivot.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/dump_schema.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spark/RequestReader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spark/SesStreamReader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spark/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spark/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sqs/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sqs/reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sqs/writer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test_processor/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test_processor/main.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1x4IlREjVevxTeCl1VUf8KQuu4m" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/input/test/click" />
+      <recent name="$PROJECT_DIR$/input/extend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/input" />
+      <recent name="$PROJECT_DIR$/input/test/send" />
+      <recent name="$PROJECT_DIR$/input/test/reject" />
+      <recent name="$PROJECT_DIR$/input/test/open" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="s3-spark-transform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/spark" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="406dce6c-fbf9-4fa1-b299-4e4cd3d0bf0d" name="Changes" comment="" />
+      <created>1629608084340</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629608084340</updated>
+      <workItem from="1629608086380" duration="4855000" />
+      <workItem from="1629640825262" duration="32327000" />
+      <workItem from="1629721887202" duration="16410000" />
+      <workItem from="1629744146882" duration="527000" />
+      <workItem from="1629744733781" duration="16000" />
+      <workItem from="1629744765936" duration="310000" />
+      <workItem from="1629746004355" duration="1913000" />
+      <workItem from="1629747952698" duration="3146000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/readers.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/s3_spark_transform$main.coverage" NAME="main Coverage Results" MODIFIED="1629755058862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/spark" />
+  </component>
+</project>
