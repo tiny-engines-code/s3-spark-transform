@@ -2,9 +2,12 @@ import os
 
 from pyspark.sql import *
 from pyspark.sql.types import *
-from transformer import transform_df
+from transformer import transform_ses_records
 from writers import write_sink
 
+# --------------------------------------------------
+#  ses record schema
+#
 input_schema = StructType([
     StructField('eventType', StringType(), True),
     StructField('delivery', StringType(), True),
@@ -37,29 +40,20 @@ input_schema = StructType([
 ])
 
 
+# --------------------------------------------------
+#  read as a batch
+#
 def read_json_file(spark: SparkSession, event_type: str, input_folder: str):
     raw = spark.read.schema(input_schema).json(input_folder)
-    return transform_df(raw)
+    return transform_ses_records(raw)
 
 
+# --------------------------------------------------
+#  read as a stream
+#
 def read_json_streaming(spark: SparkSession, event_type: str, input_folder: str):
     raw = spark.readStream.schema(input_schema).json(input_folder)
-    return transform_df(raw)
+    return transform_ses_records(raw)
 
 
-def process_s3_directory(spark: SparkSession, event_type: str, source_path: str, sink_path: str,
-                         checkpoint_path: str = None):
-    source_path = os.path.join(source_path, event_type + "/")
-    sink_path = os.path.join(sink_path, event_type + "/")
 
-    if checkpoint_path is not None:
-        mail_df = read_json_streaming(spark=spark, event_type=event_type, input_folder=source_path)
-        write_sink(mail_df, sink_path, ["stream"], checkpoint_path)
-    else:
-        mail_df = read_json_file(spark=spark, event_type=event_type, input_folder=source_path)
-        if sink_path.startswith("jdbc"):
-            write_sink(mail_df, sink_path, ["jdbc"])
-        elif checkpoint_path is None:
-            write_sink(mail_df, sink_path, ["file"])
-        else:
-            write_sink(mail_df, sink_path, ["stream"])

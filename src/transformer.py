@@ -7,6 +7,9 @@ from pyspark.sql.types import *
 
 __all__ = ["DataFrameReader", "DataFrameWriter"]
 
+# --------------------------------------------------
+#  Schemas
+#
 header_schema = StructType([
     StructField("send_id", StringType(), False)])
 
@@ -23,10 +26,12 @@ file_schema = StructType([
 ])
 
 
+# --------------------------------------------------
+#  get_event_data
+#       - Parse the speocific event json for any event class (eg.g bounce, open...)
+#
 def get_event_data(event_class, event):
     elem = json.loads(event)
-    # print(f"EVENT={event}")
-
     end_type = ""
     subtype = ""
     timestamp = ""
@@ -48,6 +53,10 @@ def get_event_data(event_class, event):
     return row
 
 
+# --------------------------------------------------
+#  get_file_info
+#       - Put the file info on the df for future validations
+#
 def get_file_info(filename):
     bucket_name = "not-supported"
     file_name = filename
@@ -58,6 +67,10 @@ def get_file_info(filename):
     return Row('bucket', 'filename')(bucket_name, file_name)
 
 
+# --------------------------------------------------
+#  conform_events
+#       - Merge open, bounce, send, rejects all into a single event schema
+#
 def conform_events(df, threshold=0):
 
     columns = ["open", "delivery", "complaint", "send", "reject", "bounce", "click"]
@@ -79,7 +92,14 @@ def conform_events(df, threshold=0):
         return df2
 
 
-def transform_df(raw: DataFrame) -> DataFrame:
+# --------------------------------------------------
+#  transform_ses_records
+#       - Main transform method
+#
+#  input:  any ses events df
+#  output: flat conformed records df
+#
+def transform_ses_records(raw: DataFrame) -> DataFrame:
     subtype_udf = udf(get_event_data, event_schema)
     filename_udf = udf(get_file_info, file_schema)
 

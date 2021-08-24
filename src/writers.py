@@ -13,10 +13,9 @@ def write_batch_to_file(mail_df: DataFrame, mail_folder: str):
 
 
 def write_batch_to_jdbc(df):
-    db_target_url = "jdbc:postgresql://localhost:5432/postgres"  # db_target_url = "jdbc:postgresql://cds-kafka-sink.cfdzoccamj4b.us-east-2.rds.amazonaws.com:5432/postgres"
 
-    v = df.write.format("jdbc").mode("append")\
-        .option("driver", "org.postgresql.Driver") \
+    wr = df.write.format("jdbc").mode("append")\
+        .options("driver", "org.postgresql.Driver") \
         .option("url", "jdbc:postgresql://localhost:5432/postgres") \
         .option("dbtable", "ses_mail") \
         .option("user", "postgres") \
@@ -28,7 +27,7 @@ def write_stream_to_filestream(mail_df: DataFrame, mail_folder: str, checkpoint_
     x = datetime.now()
     sub_folder = f"year={x.year}/month={x.month:02}/day={x.day:02}/hour={x.hour:02}"
 
-    mail_query = mail_df \
+    mail_df \
         .writeStream \
         .option("path", mail_folder + sub_folder) \
         .option("checkpointLocation", f"{checkpoint_path}/mail") \
@@ -37,11 +36,15 @@ def write_stream_to_filestream(mail_df: DataFrame, mail_folder: str, checkpoint_
         .awaitTermination()
 
 
-def jdbc_connect_options(df, epoch_id):
-    df.format("jdbc").option("url", "jdbc:postgresql://localhost:5432/postgres") \
-        .option("dbtable", "public.ses_mail") \
+def write_stream_to_jdbc(df, epoch_id=None):
+    df.writeStream.format("jdbc").mode("append")\
+        .options("driver", "org.postgresql.Driver") \
+        .option("url", "jdbc:postgresql://localhost:5432/postgres") \
+        .option("dbtable", "ses_mail") \
         .option("user", "postgres") \
-        .option("password", "chinois1").save()
+        .option("password", "chinois1")\
+        .start()\
+        .awaitTermination()
 
 
 def write_sink(df: DataFrame, destination: str, sink: List[str], checkpoint_path: str = None):
@@ -51,8 +54,7 @@ def write_sink(df: DataFrame, destination: str, sink: List[str], checkpoint_path
 
     if streaming:
         if 'jdbc' in sink:
-            df.writeStream.foreachBatch(jdbc_connect_options).start()
-            df.awaitTermination()
+            write_stream_to_jdbc(df)
         else:
             write_stream_to_filestream(df, destination, checkpoint_path)
     else:
