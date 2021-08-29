@@ -34,10 +34,10 @@ def process_event_directory(spark_session: SparkSession, event_type: str, source
     # todo - put postgres in a docker file rather than calling my local version
     #
     if checkpoint_path is not None:
-        mail_df = read_json_streaming(spark=spark_session, event_type=event_type, input_folder=source_path)
+        mail_df = read_json_streaming(spark=spark_session, input_folder=source_path)
         write_sink(mail_df, sink_path, ["stream"], checkpoint_path)
     else:
-        mail_df = read_json_file(spark=spark_session, event_type=event_type, input_folder=source_path)
+        mail_df = read_json_file(spark=spark_session, input_folder=source_path)
         if sink_path.startswith("jdbc"):
             write_sink(mail_df, sink_path, ["jdbc"])
         elif checkpoint_path is None:

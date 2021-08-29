@@ -43,7 +43,7 @@ input_schema = StructType([
 # --------------------------------------------------
 #  read as a batch
 #
-def read_json_file(spark: SparkSession, event_type: str, input_folder: str):
+def read_json_file(spark: SparkSession, input_folder: str) -> DataFrame:
     raw = spark.read.schema(input_schema).json(input_folder)
     return transform_ses_records(raw)
 
@@ -51,7 +51,7 @@ def read_json_file(spark: SparkSession, event_type: str, input_folder: str):
 # --------------------------------------------------
 #  read as a stream
 #
-def read_json_streaming(spark: SparkSession, event_type: str, input_folder: str):
+def read_json_streaming(spark: SparkSession,  input_folder: str) -> DataFrame:
     raw = spark.readStream.schema(input_schema).json(input_folder)
     return transform_ses_records(raw)
 
