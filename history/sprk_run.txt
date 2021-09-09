@@ -1,0 +1,194 @@
+/Users/clome1/.conda/envs/lazyprogrammer/bin/python /Users/clome1/Source/projects/tiny-engines/s3-spark-transform/src/main.py
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/usr/local/Cellar/apache-spark/3.1.2/libexec/jars/spark-unsafe_2.12-3.1.2.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+:: loading settings :: url = jar:file:/usr/local/Cellar/apache-spark/3.1.2/libexec/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /Users/clome1/.ivy2/cache
+The jars for the packages stored in: /Users/clome1/.ivy2/jars
+org.apache.hadoop#hadoop-aws added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-c638b84f-932e-4a88-9530-f9fdb2fd6681;1.0
+	confs: [default]
+	found org.apache.hadoop#hadoop-aws;3.2.0 in central
+	found com.amazonaws#aws-java-sdk-bundle;1.11.375 in central
+:: resolution report :: resolve 231ms :: artifacts dl 4ms
+	:: modules in use:
+	com.amazonaws#aws-java-sdk-bundle;1.11.375 from central in [default]
+	org.apache.hadoop#hadoop-aws;3.2.0 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   2   |   0   |   0   |   0   ||   2   |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-c638b84f-932e-4a88-9530-f9fdb2fd6681
+	confs: [default]
+	0 artifacts copied, 2 already retrieved (0kB/7ms)
+21/09/07 19:50:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 729 records
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 809 records
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 80 records
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 892 records
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 99 records
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 83 records
+root
+ |-- event_class: string (nullable = true)
+ |-- etl_time: timestamp (nullable = false)
+ |-- timestamp: string (nullable = true)
+ |-- source: string (nullable = true)
+ |-- account: string (nullable = true)
+ |-- message_id: string (nullable = true)
+ |-- from: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- to: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- messageId: string (nullable = true)
+ |-- subject: string (nullable = true)
+ |-- event_time: string (nullable = true)
+ |-- event_type: string (nullable = true)
+ |-- event_subclass: string (nullable = true)
+ |-- event_recipients: string (nullable = true)
+ |-- event_data: string (nullable = true)
+ |-- bucket: string (nullable = true)
+ |-- filename: string (nullable = true)
+ |-- completion_time: timestamp (nullable = true)
+
+processed 364 records
+
+Process finished with exit code 0

@@ -2,8 +2,6 @@
 .idea/
 .DS_store
 
-output_local/
-output_streaming/
 __pycache__/
 *.py[cod]
 *$py.class

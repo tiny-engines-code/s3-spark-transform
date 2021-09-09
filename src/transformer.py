@@ -1,3 +1,8 @@
+""" transform various SES schemas into a common schema
+
+Create a flat schema that can be databased and pivoted across all event classes
+
+"""
 import json
 import re
 
@@ -8,7 +13,7 @@ from pyspark.sql.types import *
 __all__ = ["DataFrameReader", "DataFrameWriter"]
 
 # --------------------------------------------------
-#  Schemas
+#  temp schemas
 #
 header_schema = StructType([
     StructField("send_id", StringType(), False)])
@@ -26,11 +31,50 @@ file_schema = StructType([
 ])
 
 
-# --------------------------------------------------
-#  get_event_data
-#       - Parse the speocific event json for any event class (eg.g bounce, open...)
-#
-def get_event_data(event_class: str, event: str) -> Row:
+def transform_ses_records(raw: DataFrame, event_class: str) -> DataFrame:
+    """Transforms a raw SES Dataframe into a common schema Dataframe
+
+    Args:
+        :param raw: the spark session
+        :param event_class one of "open", "delivery", "complaint", "send", "reject", "bounce", "click"
+
+    Returns:
+        * A transformed dataframe
+
+    """
+    subtype_udf = udf(get_event_data, event_schema)
+    filename_udf = udf(get_file_info, file_schema)
+
+    merge_df = raw.withColumnRenamed(event_class, "event")
+
+    # flatten it out a bit and conform any class specific names e.g. bounce --> event
+    df = merge_df \
+        .withColumn("Headers", col("mail.commonHeaders")) \
+        .withColumn("Tags", col("mail.tags")) \
+        .withColumn("FileInfo", filename_udf(input_file_name())) \
+        .withColumn("EventInfo", subtype_udf(merge_df['event']))
+
+    # do the main transform, add some tracking info and return
+    return df.select(lower(col("eventType")).alias("event_class"),
+                     lit(current_timestamp()).alias("etl_time"),
+                     col("mail.timestamp").alias("timestamp"),
+                     col("mail.source").alias("source"),
+                     col("mail.sendingAccountId").alias("account"),
+                     col("mail.messageId").alias("message_id"),
+                     "Headers.*",
+                     # "Tags.*",
+                     "EventInfo.*",
+                     col("event").alias("event_data"),
+                     "FileInfo.*").withColumn("completion_time", to_timestamp(col("event_time")))
+
+
+def get_event_data(event: str) -> Row:
+    """ parse out the specific event (e.g. 'bounce') from a json string
+
+    :param event: a json string of event data
+    :return: a common 'event' Row
+
+    """
     elem = json.loads(event)
     end_type = ""
     subtype = ""
@@ -53,11 +97,13 @@ def get_event_data(event_class: str, event: str) -> Row:
     return row
 
 
-# --------------------------------------------------
-#  get_file_info
-#       - Put the file info on the df for future validations
-#
-def get_file_info(filename: str):
+def get_file_info(filename: str) -> Row:
+    """ parse out the file and bucket info
+
+    :param filename: a string filename
+    :return: a conformed file Row
+
+    """
     bucket_name = "not-supported"
     file_name = filename
     m = re.search(r"""^s3.\:\/\/([^\/]*)\/(.*)$""", filename)
@@ -67,61 +113,3 @@ def get_file_info(filename: str):
     return Row('bucket', 'filename')(bucket_name, file_name)
 
 
-# --------------------------------------------------
-#  conform_events
-#       - Merge open, bounce, send, rejects all into a single event schema
-#
-#  input: Individual elements for ["open", "delivery", "complaint", "send", "reject", "bounce", "click"]
-#  output: a single event element
-#
-def conform_events(df: DataFrame, threshold: int = 0) -> DataFrame:
-
-    columns = ["open", "delivery", "complaint", "send", "reject", "bounce", "click"]
-    null_counts = df.select([count(when(col(c).isNull(), c)).alias(c) for c in columns]).collect()[0].asDict()
-
-    event_name = ""
-    for i, v in null_counts.items():
-        if v == 0:
-            event_name = i
-
-    to_drop = [k for k, v in null_counts.items() if v > 0]
-    df = df.drop(*to_drop)
-
-    if len(event_name) == 0:
-        df2 = df.withColumn("event", lit("{}"))
-        return df2
-    else:
-        df2 = df.withColumnRenamed(event_name, "event")
-        return df2
-
-
-# --------------------------------------------------
-#  transform_ses_records
-#       - Main transform method
-#
-#  input:  any ses events df
-#  output: flat conformed records df
-#
-def transform_ses_records(raw: DataFrame) -> DataFrame:
-    subtype_udf = udf(get_event_data, event_schema)
-    filename_udf = udf(get_file_info, file_schema)
-
-    conformed_df = conform_events(raw)
-
-    df = conformed_df \
-        .withColumn("Headers", col("mail.commonHeaders")) \
-        .withColumn("Tags", col("mail.tags")) \
-        .withColumn("FileInfo", filename_udf(input_file_name())) \
-        .withColumn("EventInfo", subtype_udf(conformed_df['eventType'], conformed_df['event']))
-
-    return df.select(lower(col("eventType")).alias("event_class"),
-                     lit(current_timestamp()).alias("etl_time"),
-                     col("mail.timestamp").alias("timestamp"),
-                     col("mail.source").alias("source"),
-                     col("mail.sendingAccountId").alias("account"),
-                     col("mail.messageId").alias("message_id"),
-                     "Headers.*",
-                     # "Tags.*",
-                     "EventInfo.*",
-                     col("event").alias("event_data"),
-                     "FileInfo.*").withColumn("completion_time", to_timestamp(col("event_time")))

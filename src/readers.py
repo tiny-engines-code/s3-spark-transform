@@ -1,3 +1,9 @@
+""" read all SES json files in a folder and it's subdirectories
+
+Example of different functions for both batch and streaming that read all files for a specific event class,
+call a common transformer, and return the transformed dataframe
+
+"""
 import os
 
 from pyspark.sql import *
@@ -6,7 +12,8 @@ from transformer import transform_ses_records
 from writers import write_sink
 
 # --------------------------------------------------
-#  ses record schema
+#  uber ses event record schema with ALL event class
+#  elements - we'll parse out what we need
 #
 input_schema = StructType([
     StructField('eventType', StringType(), True),
@@ -40,20 +47,37 @@ input_schema = StructType([
 ])
 
 
-# --------------------------------------------------
-#  read as a batch
-#
-def read_json_file(spark: SparkSession, input_folder: str) -> DataFrame:
-    raw = spark.read.schema(input_schema).json(input_folder)
-    return transform_ses_records(raw)
+def read_json_file(pc: SparkSession, event_class: str, input_path: str) -> DataFrame:
+    """Performs a batch read, and returns a transformed Dataframe
+
+    Args:
+        :param pc: the spark session
+        :param event_class: one of "open", "delivery", "complaint", "send", "reject", "bounce", "click"
+        :param input_path: root directory for the input files
+
+    Returns:
+        * A transformed dataframe
+
+    """
+
+    raw = pc.read.schema(input_schema).json(input_path)
+    return transform_ses_records(raw, event_class)
 
 
-# --------------------------------------------------
-#  read as a stream
-#
-def read_json_streaming(spark: SparkSession,  input_folder: str) -> DataFrame:
-    raw = spark.readStream.schema(input_schema).json(input_folder)
-    return transform_ses_records(raw)
+def read_json_streaming(pc: SparkSession, event_class: str, input_path: str) -> DataFrame:
+    """Performs a structured streaming read, and returns a transformed Dataframe
+
+    Args:
+        :param pc: the spark session
+        :param event_class: one of "open", "delivery", "complaint", "send", "reject", "bounce", "click"
+        :param input_path: root directory for the input files
+
+    Returns:
+        * A transformed dataframe
+
+    """
+    raw = pc.readStream.schema(input_schema).json(input_path)
+    return transform_ses_records(raw, event_class)
 
 
 

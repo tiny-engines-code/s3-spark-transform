@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="406dce6c-fbf9-4fa1-b299-4e4cd3d0bf0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat.values" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat.values.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/entities/entities.dat_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a561e4-ce0d-4bc0-933f-10ecd98d78a8/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history/sprk_run.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/open_but_no_click.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/readers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/readers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/writers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/writers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/spark" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -105,6 +103,9 @@
       <workItem from="1629746004355" duration="1913000" />
       <workItem from="1629747952698" duration="3146000" />
       <workItem from="1629834616456" duration="6745000" />
+      <workItem from="1631065971471" duration="262000" />
+      <workItem from="1631066248814" duration="4431000" />
+      <workItem from="1631106904159" duration="8742000" />
     </task>
     <servers />
   </component>
@@ -114,18 +115,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/readers.py</url>
-          <line>46</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/s3_spark_transform$main.coverage" NAME="main Coverage Results" MODIFIED="1629837117229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/spark" />
+    <SUITE FILE_PATH="coverage/s3_spark_transform$main.coverage" NAME="main Coverage Results" MODIFIED="1631071447510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/" />
   </component>
 </project>
